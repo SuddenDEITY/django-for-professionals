@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-(g&b^pj32k8)zf3doczyif39v6(gdkcn66)_)nurr5++#46^_*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['89.108.83.132']
+ALLOWED_HOSTS = ['127.0.0.1']
 
+SITE_ID = 1
 
 # Application definition
 
@@ -36,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 	'crispy_forms',
+    'allauth',
+    'allauth.account',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -108,6 +112,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_SESSION_REMEMBER = True
+
+ACCOUNT_USERNAME_REQUIRED = False 
+ACCOUNT_AUTHENTICATION_METHOD = 'email' 
+ACCOUNT_EMAIL_REQUIRED = True 
+ACCOUNT_UNIQUE_EMAIL = True 
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -131,5 +148,7 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
