@@ -7,6 +7,11 @@ services:
    environment:
     - SECRET_KEY=django-insecure-(g&b^pj32k8)zf3doczyif39v6(gdkcn66)_)nurr5++#46^_*
     - DEBUG=1
+    - EMAIL_HOST=smtp.gmail.com
+    - EMAIL_HOST_USER=becquerel25@gmail.com
+    - EMAIL_HOST_PASSWORD=Geredargamer_1
+    - EMAIL_PORT=587
+    - EMAIL_USE_TLS=1
    volumes:
     - .:/code
    ports:
