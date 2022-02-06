@@ -6,13 +6,13 @@ services:
    command: python /code/manage.py runserver 0.0.0.0:8000
    environment:
     - SECRET_KEY=django-insecure-(g&b^pj32k8)zf3doczyif39v6(gdkcn66)_)nurr5++#46^_*
-    - DEBUG=1
+    - DEBUG=0
     - EMAIL_HOST=smtp.gmail.com
     - EMAIL_HOST_USER=becquerel25@gmail.com
     - EMAIL_HOST_PASSWORD=Geredargamer_1
     - EMAIL_PORT=587
     - EMAIL_USE_TLS=1
-    - ENVIRONMENT=development
+    - ENVIRONMENT=production
    volumes:
     - .:/code
    ports:
@@ -21,10 +21,7 @@ services:
     - db
   db:
    image: postgres:11
-   volumes:
-    - postgres_data:/var/lib/postgresql/data/
    environment:
     - "POSTGRES_HOST_AUTH_METHOD=trust"
-volumes:
-   postgres_data:
+
 
