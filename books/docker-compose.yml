@@ -5,7 +5,7 @@ services:
    build: .
    command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000
    environment:
-    - SECRET_KEY=django-insecure-(g&b^pj32k8)zf3doczyif39v6(gdkcn66)_)nurr5++#46^_*
+    - SECRET_KEY=w1ml7n+5)h0rtqld$%cj1a_(!%pj#(#q$g4@&1z_0&_i8&a@)9
     - DEBUG=1
     - EMAIL_HOST=smtp.gmail.com
     - EMAIL_HOST_USER=becquerel25@gmail.com
